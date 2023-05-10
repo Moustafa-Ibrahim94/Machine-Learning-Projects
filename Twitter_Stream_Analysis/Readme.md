@@ -1,13 +1,42 @@
 # Twitter Stream Analysis Project
-## Overview
-This project involves using Python and the Tweepy library to stream tweets related to a specific topic (in this case, Bitcoin), perform sentiment analysis on the tweets. The goal of the project is to gain insights into public sentiment surrounding Bitcoin on Twitter and to explore the potential correlations between Twitter sentiment and the performance of Bitcoin in the stock market.
 
-## Dependencies
-Python 3
-Tweepy library
-TextBlob library
+## Twitter Stream Analysis
+Twitter Stream Analysis is a Python web application that performs sentiment analysis on tweets retrieved from Twitter using the Tweepy library and the TextBlob package. The application allows users to enter a query and retrieve up to 25 tweets matching the query. It then applies sentiment analysis on each tweet to determine whether it is positive, negative, or neutral, and calculates the percentage of positive, negative, and neutral tweets.
 
-## References
-Tweepy documentation
-TextBlob documentation
-SQLite documentation
+## Getting Started
+Prerequisites
+Before you can run the application, you will need to install the following:
+
+Python 3.6 or higher
+Flask
+Tweepy
+TextBlob
+regex
+You can install Flask and the other required packages by running the following command:
+
+pip install Flask tweepy textblob regex
+
+config file
+consumer_key = 'your_consumer_key'
+consumer_secret = 'your_consumer_secret'
+access_token = 'your_access_token'
+access_secret = 'your_access_secret'
+You can obtain your Twitter API credentials by creating a Twitter Developer account and creating a new app.
+
+
+python app.py
+Open a web browser and navigate to http://localhost:5000.
+
+Enter a query in the search box and click the "Search" button.
+
+The application will retrieve up to 25 tweets matching the query and display the results on the search results page.
+
+Built With
+Python 3.6
+Flask
+Tweepy
+TextBlob
+regex
+
+# Authors
+Moustafa Ibrahim
