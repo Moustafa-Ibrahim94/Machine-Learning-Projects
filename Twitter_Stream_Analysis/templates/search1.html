@@ -1,0 +1,150 @@
+    <!doctype html>
+    <html>
+      <head>
+        <title>Search results for {{ query }}</title>
+        <style>
+          body {
+            background-color: #E6ECF0;
+            color: #1C1E21;
+            font-family: Arial, sans-serif;
+          }
+          h1 {
+            color: #1DA1F2;
+            text-align: center;
+          }
+          ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+          }
+          .tweet {
+            background-color: #FFFFFF;
+            border: 1px solid #1DA1F2;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 20px auto;
+            text-align: center;
+            max-width: 400px;
+          }
+          .tweet p:first-child {
+            font-weight: bold;
+            margin-bottom: 5px;
+          }
+          .tweet p:last-child {
+            margin-top: 5px;
+          }
+            #logo {
+              position: absolute;
+              top: 15px;
+              left: 15px;
+              width: 51.2px;
+              height: 42.1px;
+            }
+        #myChart2 {
+  margin: 0 auto;
+  display: block;
+}
+        </style>
+      </head>
+        <body>
+          <img src="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-1.png" alt="Twitter logo" id="logo">
+          <h1>Search results for "{{ query }}"</h1>
+          <ul>
+            {% for tweet, sentiment in tweet_sentiments %}
+              <div class="tweet">
+                <p>{{ tweet }}</p>
+                <p>Sentiment score: {{ sentiment }}</p>
+              </div>
+            {% endfor %}
+          </ul>
+          
+          <canvas id="myChart" width="200" height="200"></canvas>
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+          
+          <script>
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var canvas = document.getElementById('myChart');
+            canvas.width = 200;
+            canvas.height = 200;
+            var chart = new Chart(ctx, {
+              type: 'pie',
+              data: {
+                labels: ['Positive', 'Negative', 'Neutral'],
+                datasets: [{
+                  label: 'Sentiment Analysis',
+                  data: [{{ positive_percentage }}, {{ negative_percentage }}, {{ neutral_percentage }}],
+                  backgroundColor: [
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(201, 203, 207, 0.2)'
+                  ],
+                  borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(201, 203, 207, 1)'
+                  ],
+                  borderWidth: 1
+                }]
+              },
+              options: {
+                responsive: true,
+                aspectRatio: 2
+              }
+            });      
+          </script>
+          <canvas id="myChart2" width="960" height="960"></canvas>
+<script>
+var ctx2 = document.getElementById('myChart2').getContext('2d');
+var scatterChart = new Chart(ctx2, {
+  type: 'scatter',
+  data: {
+    datasets: [{
+      label: 'Sentiment vs Subjectivity',
+      data: [
+        {% for sentiment, subjectivity in subject_sentiment %}
+          {x: {{ sentiment }}, y: {{ subjectivity }}},
+        {% endfor %}
+      ],
+      backgroundColor: '#1DA1F2'
+    }]
+  },
+  options: {
+    responsive: false,
+    aspectRatio: 2,
+    maintainAspectRatio: true,
+    width: 960,
+    height: 960,
+    scales: {
+      xAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Subjectivity'
+        },
+        ticks: {
+          min: 0,
+          max: 1
+        }
+      }],
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Sentiment'
+
+        },
+        ticks: {
+          min: -1,
+          max: 1
+        }
+      }]
+    }
+  }
+});
+</script>
+
+
+          </script>
+
+    </body>
+    
+    </html>
