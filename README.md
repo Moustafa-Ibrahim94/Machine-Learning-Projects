@@ -8,7 +8,7 @@ Welcome to the Machine Learning Projects repository! This repository contains va
 
 #### Overview
 
-This project focuses on analyzing Twitter streams using machine learning techniques. It includes [brief description of the project, such as its goals and key features].
+This project focuses on analyzing Twitter streams using machine learning techniques.
 
 #### Getting Started
 
