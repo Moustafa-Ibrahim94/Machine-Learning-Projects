@@ -10,6 +10,12 @@ Welcome to the Machine Learning Projects repository! This repository contains va
 
 This project focuses on analyzing Twitter streams using machine learning techniques.
 
+### Predictive Modeling for Agriculture
+
+#### Project Overview
+
+In the realm of modern agriculture, the optimization of crop selection is paramount. This project, at the confluence of agriculture and machine learning, aims to assist farmers in making informed decisions about crop selection based on essential soil metrics.
+
 #### Getting Started
 
 To run this project locally, follow these steps:
